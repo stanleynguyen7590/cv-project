@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Header from "./components/header";
+// import MyForm from "./components/common/myForm";
+import PersonalInfoForm from "./components/personalInfoForm";
+import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { personalInfoList, getPersonalInfo } from "./formFields";
 function App() {
+  const [personalInfo, setPersonalInfo] = useState(
+    getPersonalInfo(personalInfoList)
+  );
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="container">
+      {" "}
+      <Header title="My CV Application" />
+      <div className="App">
+        <PersonalInfoForm
+          fieldList={personalInfoList}
+          personalInfo={personalInfo}
+          setPersonalInfo={setPersonalInfo}
+        ></PersonalInfoForm>
+      </div>
+    </main>
   );
 }
 

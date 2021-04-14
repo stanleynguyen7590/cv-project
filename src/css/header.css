@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background-color: #ccc;
+  font-size: 32px;
+  font-family: Arial, Helvetica, sans-serif;
+  justify-content: center;
+}

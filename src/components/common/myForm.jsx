@@ -1,6 +1,5 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import { propTypes } from "react-bootstrap/esm/Image";
 const MyForm = props => {
   return (
     <Form>

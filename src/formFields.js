@@ -11,13 +11,13 @@ const personalInfoList = [
     type: "text",
     placeholder: "Last Name",
   },
-  {
-    id: "03",
-    name: "title",
-    type: "select",
-    placeholder: "Title",
-    options: ["Mr", "Mrs", "Ms"],
-  },
+  // {
+  //   id: "03",
+  //   name: "title",
+  //   type: "select",
+  //   placeholder: "Title",
+  //   options: ["Mr", "Mrs", "Ms"],
+  // },
   {
     id: "04",
     name: "file",
@@ -33,7 +33,7 @@ const personalInfoList = [
   {
     id: "06",
     name: "phoneNumber",
-    type: "number",
+    type: "text",
     placeholder: "Phone number",
   },
   {
@@ -49,11 +49,87 @@ const personalInfoList = [
     placeholder: "Description",
   },
 ];
+const experienceList = [
+  {
+    id: "01",
+    name: "position",
+    type: "text",
+    placeholder: "Position",
+  },
+  {
+    id: "02",
+    name: "company",
+    type: "text",
+    placeholder: "Company",
+  },
+  {
+    id: "03",
+    name: "city",
+    type: "text",
+    placeholder: "City",
+  },
+  {
+    id: "04",
+    name: "startDate",
+    type: "date",
+    placeholder: "Start Date",
+  },
+  {
+    id: "05",
+    name: "endDate",
+    type: "date",
+    placeholder: "End Date",
+  },
+  {
+    id: "06",
+    name: "summary",
+    type: "textarea",
+    placeholder: "Summary",
+  },
+];
+const educationList = [
+  {
+    id: "01",
+    name: "universityName",
+    type: "text",
+    placeholder: "University Name",
+  },
+  {
+    id: "02",
+    name: "city",
+    type: "text",
+    placeholder: "City",
+  },
+  {
+    id: "03",
+    name: "degree",
+    type: "text",
+    placeholder: "Degree",
+  },
+  {
+    id: "04",
+    name: "subject",
+    type: "text",
+    placeholder: "Subject",
+  },
+  {
+    id: "05",
+    name: "startDate",
+    type: "date",
+    placeholder: "Start Date",
+  },
+  {
+    id: "06",
+    name: "endDate",
+    type: "date",
+    placeholder: "End Date",
+  },
+];
 
-const getPersonalInfo = list => {
+const getField = list => {
   return list
     .map(item => item.name)
     .reduce((o, key) => ({ ...o, [key]: "" }), {});
 };
 
-export { personalInfoList, getPersonalInfo };
+export { personalInfoList, getField, educationList, experienceList };

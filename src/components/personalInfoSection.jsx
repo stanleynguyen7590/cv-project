@@ -18,11 +18,12 @@ const PersonalInfoSection = props => {
 
   return (
     <>
-      <h4>{props.title}</h4>
+      <h4 className="mt-3">{props.title}</h4>
       <MyForm
         onChange={handleChange}
         onUpload={handleUpload}
         fieldList={props.fieldList}
+        defaultValue={props.personalInfo}
       ></MyForm>
     </>
   );

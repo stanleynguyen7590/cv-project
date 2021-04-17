@@ -4,7 +4,6 @@ import DeleteButton from "./common/deleteButton";
 import AddButton from "./common/addButton";
 const Section = props => {
   const handleChange = (index, e) => {
-    console.log(props.sectionData);
     const changedSectionData = [...props.sectionData];
     changedSectionData[index] = {
       ...props.sectionData[index],
@@ -27,14 +26,16 @@ const Section = props => {
 
   return (
     <React.Fragment>
-      <h4>{props.title}</h4>
+      <h4 className="mt-3">{props.title}</h4>
       {props.sectionData.length !== 0 &&
         props.sectionData.map((item, index) => (
           <React.Fragment key={index}>
             <MyForm
               onUpload={null}
               onChange={e => handleChange(index, e)}
+              defaultValue={props.sectionData}
               fieldList={props.fieldList}
+              index={index}
             ></MyForm>
             <DeleteButton handleDelete={handleDelete}></DeleteButton>
           </React.Fragment>

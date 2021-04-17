@@ -1,6 +1,6 @@
 import "../css/preview.css";
 import defaultImage from "../img/default.png";
-import { Image } from "react-bootstrap";
+import { Image, Button } from "react-bootstrap";
 import React from "react";
 const Preview = props => {
   const parseDate = input => {
@@ -91,6 +91,22 @@ const Preview = props => {
           </div>
         </div>
       </div>
+      <Button
+        className="my-3"
+        onClick={props.handlePrint}
+        variant="success"
+        block
+      >
+        Print to PDF
+      </Button>
+      <Button
+        className="my-2"
+        onClick={props.handleReset}
+        variant="danger"
+        block
+      >
+        Reset
+      </Button>
     </div>
   );
 };

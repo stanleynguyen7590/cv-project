@@ -140,10 +140,46 @@ const educationList = [
   },
 ];
 
+const honourAwardList = [
+  {
+    id: uuidv4(),
+    type: "text",
+    name: "honourAwards",
+    placeholder: "Honour & Awards",
+  },
+  {
+    id: uuidv4(),
+    name: "date",
+    type: "date",
+    placeholder: "Date",
+  },
+];
+
+const certificateList = [
+  {
+    id: uuidv4(),
+    type: "text",
+    name: "certificate",
+    placeholder: "Certificates",
+  },
+  {
+    id: uuidv4(),
+    name: "date",
+    type: "date",
+    placeholder: "Date",
+  },
+];
 const getField = list => {
   return list
     .map(item => item.name)
     .reduce((o, key) => ({ ...o, [key]: "" }), {});
 };
 
-export { personalInfoList, getField, educationList, experienceList };
+export {
+  personalInfoList,
+  getField,
+  educationList,
+  experienceList,
+  honourAwardList,
+  certificateList,
+};

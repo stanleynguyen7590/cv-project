@@ -27,12 +27,11 @@ const SkillsSection = props => {
     return (
       <Container key={item.id}>
         <Row>
-          <Col xs="12" sm="12" md="12" lg="8">
+          <Col xs={12} sm={12} md={12} lg={8}>
             <Form inline className="mb-3">
               <Form.Label className="my-1 mr-2">Skill</Form.Label>
               <Form.Control
                 className="my-1 mr-sm-2"
-                d
                 type="text"
                 name="skill"
                 placeholder="Enter your skill here"

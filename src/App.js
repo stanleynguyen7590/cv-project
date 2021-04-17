@@ -12,6 +12,8 @@ import {
   personalInfoList,
   experienceList,
   educationList,
+  honourAwardList,
+  certificateList,
   getField,
 } from "./formFields";
 function App() {
@@ -21,6 +23,9 @@ function App() {
   const [skills, setSkills] = useState([
     { skill: "", skillLevel: 0, id: uuidv4() },
   ]);
+  const [honourAward, setHonourAward] = useState([getField(honourAwardList)]);
+  const [certificate, setCertificate] = useState([getField(certificateList)]);
+
   const handlePrint = () => {
     console.log("print");
   };
@@ -75,6 +80,24 @@ function App() {
                 sectionData={skills}
                 setSectionData={setSkills}
               ></SkillsSection>
+            </Route>
+            <Route path="/honours-awards">
+              <Section
+                title={"Honour & Awards"}
+                fieldList={honourAwardList}
+                sectionData={honourAward}
+                setSectionData={setHonourAward}
+                getSectionField={() => getField(honourAwardList)}
+              ></Section>
+            </Route>
+            <Route path="/certificate">
+              <Section
+                title={"Certificates"}
+                fieldList={certificateList}
+                sectionData={certificate}
+                setSectionData={setCertificate}
+                getSectionField={() => getField(certificateList)}
+              ></Section>
             </Route>
             <Route path="/preview">
               <Preview

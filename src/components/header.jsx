@@ -23,8 +23,8 @@ const Header = props => {
           <NavLink className="nav-item nav-link" to="/skills">
             Skills
           </NavLink>
-          <NavLink className="nav-item nav-link" to="/honors-awards">
-            Honors & Awards
+          <NavLink className="nav-item nav-link" to="/honours-awards">
+            Honours & Awards
           </NavLink>
           <Link className="nav-item nav-link" to="/certificate">
             Certificates

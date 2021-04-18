@@ -1,10 +1,12 @@
 import Header from "./components/header";
 import { Redirect, Route, Switch } from "react-router-dom";
+import { useReactToPrint } from "react-to-print";
+
 import PersonalInfoSection from "./components/personalInfoSection";
 import SkillsSection from "./components/skillsSection";
 import Section from "./components/section";
-import Preview from "./components/preview";
-import React, { useState } from "react";
+import Preview from "./components/preview/preview";
+import React, { useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -16,6 +18,15 @@ import {
   certificateList,
   getField,
 } from "./formFields";
+
+import {
+  personalInfoExample,
+  experienceExample,
+  skillExample,
+  educationExample,
+  honourAwardExample,
+  certificateExample,
+} from "./exampleCV";
 function App() {
   const [personalInfo, setPersonalInfo] = useState(getField(personalInfoList));
   const [experience, setExperience] = useState([getField(experienceList)]);
@@ -26,12 +37,17 @@ function App() {
   const [honourAward, setHonourAward] = useState([getField(honourAwardList)]);
   const [certificate, setCertificate] = useState([getField(certificateList)]);
 
-  const handlePrint = () => {
-    console.log("print");
-  };
+  const previewRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => previewRef.current,
+  });
 
   const handleReset = () => {
-    if (window.confirm("Are you sure you wish to reset all fields?")) {
+    if (
+      window.confirm(
+        "Are you sure you wish to reset all fields? All fields' data will be lost"
+      )
+    ) {
       Array.from(document.querySelectorAll("input")).forEach(
         input => (input.value = "")
       );
@@ -39,6 +55,23 @@ function App() {
       setExperience([getField(experienceList)]);
       setEducation([getField(educationList)]);
       setSkills([{ skill: "", skillLevel: 0, id: uuidv4() }]);
+      setCertificate([getField(certificateList)]);
+      setHonourAward([getField(honourAwardList)]);
+    }
+  };
+
+  const handleLoadExample = () => {
+    if (
+      window.confirm(
+        "Are you sure you wish to load example CV? All fields' data  will be lost!"
+      )
+    ) {
+      setPersonalInfo(personalInfoExample);
+      setExperience(experienceExample);
+      setSkills(skillExample);
+      setEducation(educationExample);
+      setHonourAward(honourAwardExample);
+      setCertificate(certificateExample);
     }
   };
   return (
@@ -101,11 +134,16 @@ function App() {
             </Route>
             <Route path="/preview">
               <Preview
+                ref={previewRef}
                 personalInfo={personalInfo}
                 experience={experience}
                 education={education}
-                handlePrint={handlePrint}
+                honourAward={honourAward}
+                certificate={certificate}
+                skills={skills}
                 handleReset={handleReset}
+                handleLoadExample={handleLoadExample}
+                handlePrint={handlePrint}
               ></Preview>
             </Route>
             <Redirect from="/" exact to="/personal-info"></Redirect>

@@ -34,6 +34,7 @@ const SkillsSection = props => {
                 className="my-1 mr-sm-2"
                 type="text"
                 name="skill"
+                defaultValue={props.sectionData[index]["skill"]}
                 placeholder="Enter your skill here"
                 onChange={e => handleChangeSkill(e, index)}
               ></Form.Control>
@@ -47,6 +48,7 @@ const SkillsSection = props => {
                 onChange={e => handleChangeSkill(e, index)}
                 as="select"
                 name="skillLevel"
+                defaultValue={props.sectionData[index]["skillLevel"]}
                 className="my-1 mr-sm-2"
                 id="inlineFormCustomSelectPref"
                 custom

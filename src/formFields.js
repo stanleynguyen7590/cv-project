@@ -12,6 +12,12 @@ const personalInfoList = [
     type: "text",
     placeholder: "Last Name",
   },
+  {
+    id: uuidv4(),
+    name: "dob",
+    type: "date",
+    placeholder: "Date of Birth",
+  },
   // {
   //   id: uuidv4(),
   //   name: "title",

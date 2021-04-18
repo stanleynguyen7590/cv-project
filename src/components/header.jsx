@@ -6,7 +6,7 @@ const Header = props => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Link className="navbar-brand" to="/">
-        CV Application
+        <i className="fas fa-edit"></i>CV Editor
       </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse transition="false" id="basic-navbar-nav">
